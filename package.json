@@ -10,6 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.7",
+    "@mui/styled-engine": "^5.13.2",
+    "@mui/styled-engine-sc": "^5.12.0",
     "@types/node": "^20.3.3",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
@@ -18,6 +23,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.1",
     "sort-by": "^1.2.0",
+    "styled-components": "^6.0.2",
     "vite-aliases": "^0.11.2",
     "vite-plugin-node": "^3.0.2"
   },

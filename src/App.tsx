@@ -1,6 +1,13 @@
 import "./App.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { publicRoutes } from "./routes";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+import { ChildRoutes } from "./routes";
+import Home from "./views/home";
+import DefaultLayout from "./views/layout/default-layout";
 
 // const router = createBrowserRouter(
 //   createRoutesFromElements(
@@ -12,7 +19,21 @@ import { publicRoutes } from "./routes";
 //   )
 // )
 
-const router = createBrowserRouter(publicRoutes);
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<DefaultLayout />}>
+      <Route index element={<Home />} />
+      {ChildRoutes.map((route: any) => {
+        return (
+          <Route
+            path={route.path}
+            element={route.element}
+          />
+        );
+      })}
+    </Route>
+  )
+);
 
 function App() {
   return (
