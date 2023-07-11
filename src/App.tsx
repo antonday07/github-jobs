@@ -24,12 +24,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<DefaultLayout />}>
       <Route index element={<Home />} />
       {ChildRoutes.map((route: any) => {
-        return (
-          <Route
-            path={route.path}
-            element={route.element}
-          />
-        );
+        return <Route path={route.path} element={route.element} />;
       })}
     </Route>
   )

@@ -6,8 +6,8 @@ import ErrorPage from "@/views/not-found";
 import DefaultLayout from "@/views/layout/default-layout";
 
 const ChildRoutes: any = [
-  { path: ROUTES.HOME, element: <Home />},
-  { path: ROUTES.DETAIL_JOB, element: <DetailJob />},
+  { path: ROUTES.HOME, element: <Home /> },
+  { path: ROUTES.DETAIL_JOB, element: <DetailJob /> },
 ];
 
 const rootRoute: any = [
