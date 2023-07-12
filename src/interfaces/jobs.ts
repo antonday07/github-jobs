@@ -5,5 +5,6 @@ export interface ISingleJob {
   company: string;
   location: string;
   type: string | null;
+  created_time: string;
   created_at: string;
 }

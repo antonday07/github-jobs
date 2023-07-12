@@ -22,6 +22,7 @@ const StyleThirdHeading = styled(Typography)`
   color: #334680;
   font-size: 12px;
   line-height: 21px;
+  m
 `;
 
 const StyleMainText = styled(Typography)`
@@ -30,7 +31,7 @@ const StyleMainText = styled(Typography)`
   font-size: 12px;
   line-height: 14px;
 `;
-function MainHeading({ text }) {
+function MainHeading({ text }: { text: string }) {
   return <StyleMainHeading>{text}</StyleMainHeading>;
 }
 
@@ -38,12 +39,12 @@ function SecondaryHeading() {
   return <StyleSecondaryHeading />;
 }
 
-function ThirdHeading({ text }) {
+function ThirdHeading({ text }: { text: string }) {
   return <StyleThirdHeading>{text}</StyleThirdHeading>;
 }
 
-function MainText() {
-  return <StyleMainText />;
+function MainText({ text }: { text: string }) {
+  return <StyleMainText>{text}</StyleMainText>;
 }
 
 export { MainHeading, SecondaryHeading, ThirdHeading, MainText };

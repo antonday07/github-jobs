@@ -10,7 +10,7 @@ export default function DefaultLayout() {
       <Header />
       <div id="detail">
         <Stack m={2} direction={"row"} justifyContent={"space-between"}>
-          <Box m={2} bgcolor={"background.default"} flex={4}>
+          <Box m={2} flex={4}>
             <Outlet />
           </Box>
         </Stack>

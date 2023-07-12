@@ -18,7 +18,6 @@ export default function Home() {
   useEffect(() => {
     getData()
       .then(function (myJson) {
-        console.log(myJson);
         setListJob(myJson.jobs);
       })
       .catch(function (error) {
