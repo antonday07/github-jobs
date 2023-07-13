@@ -3,6 +3,8 @@ import React from "react";
 import { styled } from "@mui/system";
 import { MainHeading, MainText, ThirdHeading } from "../common";
 import { Button } from "@mui/material";
+import PublicOutlinedIcon from '@mui/icons-material/PublicOutlined';
+import ScheduleOutlinedIcon from '@mui/icons-material/ScheduleOutlined';
 
 const CustomSingleJob = styled("li")`
   background-color: #fff;
@@ -15,8 +17,9 @@ const CustomSingleJob = styled("li")`
   align-items: center;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
 `;
-const LeftBox = styled("div")`
+const CustomBox = styled("div")`
   display: flex;
+  align-items: center;
 `;
 
 const CustomImage = styled("img")`
@@ -29,7 +32,7 @@ const CustomImage = styled("img")`
 export default function ItemJob({ job }: { job: ISingleJob }) {
   return (
     <CustomSingleJob>
-      <LeftBox>
+      <CustomBox>
         <CustomImage src={job.thumbnail} alt={job.company} />
         <div>
           <ThirdHeading text={job.company} />
@@ -39,8 +42,10 @@ export default function ItemJob({ job }: { job: ISingleJob }) {
             href="#outlined-buttons"
             sx={{
               color: "#334680",
+              fontWeight: 600,
+              fontSize: 12,
               borderColor: "#334680",
-              width: 100,
+              width: 90,
               padding: "5px",
               marginTop: "10px",
             }}
@@ -48,12 +53,18 @@ export default function ItemJob({ job }: { job: ISingleJob }) {
             {job.type}
           </Button>
         </div>
-      </LeftBox>
+      </CustomBox>
 
-      <div>
-        <MainText text={job.location} />
-        <MainText text={job.created_time} />
-      </div>
+      <CustomBox>
+        <CustomBox style={{ marginRight: "10px" }}>
+          <PublicOutlinedIcon style={{ marginRight: "5px" }} />
+          <MainText text={job.location} />
+        </CustomBox>
+        <CustomBox>
+          <ScheduleOutlinedIcon style={{ marginRight: "5px" }} />
+          <MainText text={job.created_time} />
+        </CustomBox>
+      </CustomBox>
     </CustomSingleJob>
   );
 }

@@ -1,6 +1,7 @@
 import Banner from "@/components/banner";
 import ItemJob from "@/components/item-jobs";
 import { ISingleJob } from "@/interfaces";
+import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, Stack } from "@mui/material";
 import { styled } from "@mui/system";
 import { useEffect, useState } from "react";
 
@@ -30,25 +31,43 @@ export default function Home() {
   return (
     <div>
       <Banner />
-      <div className="home">
-        <div className="sidebar">
-          <StyleInput
-            type="text"
-            placeholder="Title, companies, expertise or benefits"
-          />
-        </div>
-        <div className="list-jobs">
+      <Stack direction="row"
+        justifyContent="space-between"
+        spacing={2} mt={10}>
+        <Sidebar className="sidebar">
+          <FormControl>
+            <FormLabel id="demo-controlled-radio-buttons-group">Filter by location</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+            >
+              <FormControlLabel value="London" control={<Radio />} label="London" />
+              <FormControlLabel value="Hanoi" control={<Radio />} label="Hanoi" />
+              <FormControlLabel value="Newyork" control={<Radio />} label="Newyork" />
+              <FormControlLabel value="Sydney" control={<Radio />} label="Sydney" />
+            </RadioGroup>
+          </FormControl>
+        </Sidebar>
+        <ListJob className="list-jobs">
           <ul>
             {listJob &&
               listJob.map((item) => {
                 return <ItemJob key={item.title} job={item} />;
               })}
           </ul>
-        </div>
-      </div>
+        </ListJob>
+      </Stack>
     </div>
   );
 }
+
+const Sidebar = styled("div")`
+ flex-basis: 30%;
+`;
+
+const ListJob = styled("div")`
+  flex: 1;
+`
 
 const StyleInput = styled("input")`
   border: none;
